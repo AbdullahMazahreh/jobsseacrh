@@ -1,0 +1,219 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+}
+
+:root {
+  --primary-color: hsl(180, 29%, 50%);
+  --cyanBackground: hsl(180, 52%, 96%);
+  --cyanFilters: hsl(180, 31%, 95%);
+  --cyanDark: hsl(180, 8%, 52%);
+  --cyanVeryDark: hsl(180, 14%, 20%);
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: var(--primary-color);
+}
+
+.header-img {
+  width: 100%;
+}
+
+.application-container {
+  background-color: var(--cyanBackground);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  padding-bottom: 30px;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.input-container {
+  display: flex;
+  border-radius: 10px;
+  position: relative;
+  bottom: 35px;
+  padding: 30px 50px;
+  width: 80%;
+  background-color: white;
+  gap: 20px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+}
+
+.previous-search {
+  color: var(--primary-color);
+  background-color: var(--cyanBackground);
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.previous-search:hover {
+  background-color: black;
+  color: white;
+}
+
+.previous-searches-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.box-shadow {
+  box-shadow: 0 5px 20px var(--cyanDark);
+}
+
+.jobs-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.job-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+
+.left-side {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.company-image {
+  height: 150px;
+  border-radius: 50%;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.company-name {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.position-name {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.position-name:hover {
+  color: var(--primary-color);
+}
+
+.job-info {
+  display: flex;
+  gap: 20px;
+}
+
+.uploaded-time,
+.job-contract,
+.job-location {
+  color: grey;
+  font-size: 16px;
+}
+
+.right-side {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.job-requirement {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--cyanBackground);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.job-requirement:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.clear-searches {
+  outline: none;
+  border: none;
+  color: var(--primary-color);
+  background-color: transparent;
+  padding: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.clear-searches:hover {
+  text-decoration: underline;
+}
+
+.block {
+  display: block;
+}
+@media (max-width: 1100px) {
+  .job-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .right-side {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .company-image {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: -30px;
+    left: 45px;
+  }
+
+  .job-container {
+    align-items: flex-start;
+    padding: 50px 20px;
+  }
+
+  .jobs-container {
+    gap: 60px;
+  }
+
+  .input-container {
+    padding: 30px 20px;
+    flex-wrap: wrap;
+  }
+}
