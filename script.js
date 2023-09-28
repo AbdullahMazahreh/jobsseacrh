@@ -19,6 +19,7 @@ const createOneJobContainer = (job) => {
   const leftSide = document.createElement("div");
   const image = document.createElement("img");
   const infoContainer = document.createElement("div");
+  const companyNameContainer = document.createElement("div");
   const companyName = document.createElement("div");
   const positionName = document.createElement("div");
   const jobInfo = document.createElement("div");
@@ -43,9 +44,10 @@ const createOneJobContainer = (job) => {
   jobContainer.append(leftSide);
   leftSide.append(image);
   leftSide.append(infoContainer);
-  infoContainer.append(companyName);
+  infoContainer.append(companyNameContainer);
   infoContainer.append(positionName);
   infoContainer.append(jobInfo);
+  companyNameContainer.append(companyName);
   jobInfo.append(uploadedTime);
   jobInfo.append(jobContract);
   jobInfo.append(jobLocation);
@@ -56,6 +58,7 @@ const createOneJobContainer = (job) => {
   leftSide.classList.add("left-side");
   image.classList.add("company-image");
   infoContainer.classList.add("info-container");
+  companyNameContainer.classList.add("company-name-container");
   companyName.classList.add("company-name");
   positionName.classList.add("position-name");
   jobInfo.classList.add("job-info");
@@ -70,6 +73,19 @@ const createOneJobContainer = (job) => {
   uploadedTime.textContent = job.postedAt;
   jobContract.textContent = job.contract;
   jobLocation.textContent = job.location;
+
+  if (job.new) {
+    const newContainer = document.createElement("div");
+    newContainer.textContent = "NEW!";
+    newContainer.classList.add("new-container");
+    companyNameContainer.append(newContainer);
+  }
+  if (job.featured) {
+    const featuredContainer = document.createElement("div");
+    featuredContainer.textContent = "FEATURED";
+    featuredContainer.classList.add("featured-container");
+    companyNameContainer.append(featuredContainer);
+  }
 
   jobsContainer.append(jobContainer);
 };
