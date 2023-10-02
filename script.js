@@ -114,13 +114,13 @@ const takeSearchValues = async () => {
       const jobLanguages = job.languages.map((ele) => ele.toLowerCase());
       const jobTools = job.tools.map((ele) => ele.toLowerCase());
       const jobDetails = [
-        job.company.toLowerCase(),
-        job.position.toLowerCase(),
+        job.role.toLowerCase(),
+        job.level.toLowerCase(),
         ...jobLanguages,
         ...jobTools,
       ];
 
-      return jobDetails.some((ele) => ele.includes(filter));
+      return jobDetails.find((ele) => ele == filter);
     });
   });
 
@@ -128,7 +128,7 @@ const takeSearchValues = async () => {
 };
 
 const updateScreen = () => {
-  const searchValue = searchInput.value;
+  const searchValue = searchInput.value.toLowerCase();
   previousContainer.innerHTML = "";
   if (searchValue !== "") previousSearches.push(searchValue);
 
@@ -152,14 +152,14 @@ const updateScreen = () => {
 };
 
 searchInput.addEventListener("keydown", (e) => {
-  if (e.target.value !== "" && e.keyCode === 13) {
+  if (e.target.value.trim().length > 1 && e.keyCode === 13) {
     updateScreen();
-    displayAllJobs();
     searchInput.value = "";
   }
 });
 
 clearSearch.addEventListener("click", () => {
   previousSearches = [];
+  searchInput.value = "";
   updateScreen();
 });
